@@ -1,1 +1,17 @@
-<p>login works!</p>
+<form class="form">
+    <mat-form-field class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="ex. john@example.com" [(ngModel)]="email" name="email" required>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" [(ngModel)]="password" name="password" required>
+    </mat-form-field>
+    <section class="full-width">
+        <div class="button-row">
+            <button mat-raised-button color="primary" (click)="login()">Login</button>
+            <button mat-stroked-button type="button" (click)="forgotPassword()">Forgot password?</button>
+        </div>
+    </section>
+</form>

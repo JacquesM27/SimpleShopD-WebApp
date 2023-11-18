@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
-    <span>Simple Shop D</span>
+    <span (click)="redirectToHomePage()" style="cursor: pointer;">Simple Shop D</span>
     <span class="toolbar-spacer"></span>
-    <mat-icon fontIcon="favorite"></mat-icon>
+    <mat-icon fontIcon="account_circle" (click)="redirectToLogin()" style="cursor: pointer;" title="Account"></mat-icon>
 </mat-toolbar>
 <router-outlet></router-outlet>

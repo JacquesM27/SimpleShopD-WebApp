@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { LoginUser } from './models/user/login/LoginUser';
+import { LoginRequest } from './models/user/login/LoginRequest';
 import { AuthService } from './services/auth/auth.service';
 import { LoginResponse } from './models/user/login/LoginRespose';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,32 +12,15 @@ import { LoginResponse } from './models/user/login/LoginRespose';
 export class AppComponent {
   title = 'SimpleShopD-WebApp';
 
-  loginUser: LoginUser = { email: '', password: '' };
+  //loginUser: LoginRequest = { email: '', password: '' };
 
-  constructor(private authService: AuthService) { }
+  constructor(private router: Router) { }
 
-  Login() {
-    this.authService.Login(this.loginUser).subscribe((response: LoginResponse) => {
-      localStorage.setItem('authToken', response.jwt);
-      console.log(localStorage);
-    });
+  redirectToLogin() {
+    this.router.navigate(['/account']);
   }
 
-  Refresh() {
-    this.authService.Refresh().subscribe((response: any) => {
-      console.log(response);
-    });
-  }
-
-  DummyHi() {
-    this.authService.DummyHi().subscribe((response: any) => {
-      console.log(response);
-    });
-  }
-
-  DummyHiAuth() {
-    this.authService.DummyHiAuth().subscribe((response: any) => {
-      console.log(response);
-    });
+  redirectToHomePage() {
+    this.router.navigate(['/']);
   }
 }

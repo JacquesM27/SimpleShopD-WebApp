@@ -49,6 +49,10 @@ export class UserApiPathService {
     return this.getPath(UserApiPaths.Register);
   }
 
+  public LogoutPath(): string {
+    return this.getPath(UserApiPaths.Logout);
+  }
+
   private getPath(path: string): string {
     return this.url + path;
   }
@@ -64,5 +68,6 @@ enum UserApiPaths {
   RefreshToken = "Users/token/refresh",
   ResetPassword = "Users/password/reset",
   ChangeRole = "Users/role/change",
-  Register = "Users/register"
+  Register = "Users/register",
+  Logout = "Users/logout"
 }
